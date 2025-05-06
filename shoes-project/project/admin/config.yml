@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "images/uploads" # Media files will be stored in the repo under images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Product Name (FR)", name: "title_fr", widget: "string" }
+      - { label: "Product Name (AR)", name: "title_ar", widget: "string" }
+      - { label: "Price", name: "price", widget: "number", value_type: "float" }
+      - { label: "Sizes", name: "sizes", widget: "list", default: ["36", "37", "38", "39", "40"] }
+      - { label: "Colors", name: "colors", widget: "list" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description (FR)", name: "description_fr", widget: "markdown" }
+      - { label: "Description (AR)", name: "description_ar", widget: "markdown" }
+      - { label: "Featured Product", name: "featured", widget: "boolean", default: false }
